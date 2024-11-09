@@ -261,7 +261,7 @@ a h4:hover {
 
 .section {
   padding-top: 90px;
-  padding-bottom: 90px;
+  padding-bottom: 40px;
 }
 .section-sm {
   padding-top: 40px;
@@ -932,5 +932,27 @@ link:focus,
 }
 .filter-controls li:hover {
   color: #47d147;
+}
+.split-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px;
+}
+.split-column {
+  flex: 1;
+  padding: 20px;
+  border: 1px solid #ddd;
+  margin: 10px;
+}
+.split-header {
+  background-color: #47d147;
+  font-size: 1.5em;
+  padding: 10px;
+  color: white;
+}        
+.split-text {
+  font-size: 1.2em;
+  line-height: 1.6;
+  margin-top: 10px;
 }
 /*# sourceMappingURL=style.css.map */
