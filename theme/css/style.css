@@ -47,10 +47,13 @@ h1, .h1 {
 
 h2, .h2 {
   font-size: 40px;
+  text-align: center;
+  padding-bottom: 40px;
 }
 @media (max-width: 575px) {
   h2, .h2 {
     font-size: 30px;
+    text-align: center;
   }
 }
 
@@ -260,7 +263,7 @@ a h4:hover {
 }
 
 .section {
-  padding-top: 90px;
+  padding-top: 40px;
   padding-bottom: 40px;
 }
 .section-sm {
@@ -954,5 +957,10 @@ link:focus,
   font-size: 1.2em;
   line-height: 1.6;
   margin-top: 10px;
+}
+
+.p1 {
+  
+  font-size: larger;
 }
 /*# sourceMappingURL=style.css.map */
