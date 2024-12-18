@@ -109,3 +109,43 @@
 	});
 
 })(jQuery);
+
+
+let slideIndex = 1;
+showSlides(slideIndex);
+
+// Move to next or previous slide
+function changeSlide(n) {
+    showSlides(slideIndex += n);
+}
+
+// Go to specific slide
+function setCurrentSlide(n) {
+    showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+    let slides = document.getElementsByClassName("slide");
+    let dots = document.getElementsByClassName("dot");
+
+    // Wrap-around logic
+    if (n > slides.length) slideIndex = 1;
+    if (n < 1) slideIndex = slides.length;
+
+    // Hide all slides
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+
+    // Remove active class from all dots
+    for (let i = 0; i < dots.length; i++) {
+        dots[i].classList.remove("active");
+    }
+
+    // Show current slide and activate the corresponding dot
+    slides[slideIndex - 1].style.display = "block";
+    dots[slideIndex - 1].classList.add("active");
+}
+setInterval(() => {
+    changeSlide(1); // Move to the next slide
+}, 5000);
