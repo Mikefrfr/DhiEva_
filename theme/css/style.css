@@ -271,7 +271,7 @@ a h4:hover {
   padding-bottom: 40px;
 }
 .section-title {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .bg-cover {
@@ -971,7 +971,7 @@ link:focus,
 /* Slideshow Container */
 .slideshow-container {
   position: relative;
-  max-width: 50%; /* Full-width container */
+  max-width: 100%; /* Full-width container */
   margin: auto;
   overflow: hidden; /* Hide anything overflowing */
 }
