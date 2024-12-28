@@ -1,9 +1,3 @@
-/**
- * WEBSITE: https://themefisher.com
- * TWITTER: https://twitter.com/themefisher
- * FACEBOOK: https://www.facebook.com/themefisher
- * GITHUB: https://github.com/themefisher/
- */
 
 (function ($) {
 	'use strict';
@@ -149,3 +143,38 @@ function showSlides(n) {
 setInterval(() => {
     changeSlide(1); // Move to the next slide
 }, 5000);
+
+
+// JavaScript for handling form submission
+document.querySelector('form').addEventListener('submit', async (event) => {
+	event.preventDefault(); // Prevent the form from reloading the page
+  
+	// Gather form data
+	const formData = {
+	  name: document.querySelector('input[name="name"]').value,
+	  email: document.querySelector('input[name="email"]').value,
+	  subject: document.querySelector('input[name="subject"]').value,
+	  message: document.querySelector('textarea[name="message"]').value,
+	};
+  
+	// Make the POST request to the backend
+	try {
+	  const response = await fetch('/api/send-email', {
+		method: 'POST',
+		headers: { 'Content-Type': 'application/json' },
+		body: JSON.stringify(formData),
+	  });
+  
+	  const result = await response.json();
+  
+	  if (response.ok) {
+		alert('Message sent successfully!');
+	  } else {
+		alert(`Error: ${result.error}`);
+	  }
+	} catch (error) {
+	  console.error('Error sending message:', error);
+	  alert('Failed to send message. Please try again later.');
+	}
+  });
+  
