@@ -1,40 +1,34 @@
 const nodemailer = require('nodemailer');
 
 export default async function handler(req, res) {
-  if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method not allowed' });
-  }
+  if (req.method === 'POST') {
+    const { name, email, subject, message } = req.body;
 
-  const { name, email, subject, message } = req.body;
-
-  if (!name || !email || !subject || !message) {
-    return res.status(400).json({ error: 'All fields are required' });
-  }
-
-  try {
-    // Configure the transporter
+    // Create a Nodemailer transporter
     const transporter = nodemailer.createTransport({
-      service: 'gmail', // You can use other services like Outlook, Yahoo, etc.
+      service: 'gmail',
       auth: {
-        user: process.env.EMAIL, // Your email
-        pass: process.env.EMAIL_PASSWORD, // Your email password or app password
-      },
+        user: process.env.EMAIL, // Your email address
+        pass: process.env.PASSWORD // Your email password
+      }
     });
 
-    // Email details
-    const mailOptions = {
-      from: email,
-      to: process.env.RECIPIENT_EMAIL, // Recipient email
-      subject: `Contact Form: ${subject}`,
-      text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
-    };
+    try {
+      // Send email
+      await transporter.sendMail({
+        from: email,
+        to: process.env.TARGET_EMAIL, // The recipient email
+        subject: `[Contact Form] ${subject}`,
+        text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
+      });
 
-    // Send the email
-    await transporter.sendMail(mailOptions);
-
-    res.status(200).json({ message: 'Email sent successfully!' });
-  } catch (error) {
-    console.error('Error sending email:', error);
-    res.status(500).json({ error: 'Failed to send email' });
+      res.status(200).json({ success: true, message: 'Email sent successfully!' });
+    } catch (error) {
+      console.error('Error sending email:', error);
+      res.status(500).json({ success: false, message: 'Failed to send email.' });
+    }
+  } else {
+    res.status(405).json({ message: 'Method not allowed.' });
   }
 }
+

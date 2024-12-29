@@ -146,35 +146,23 @@ setInterval(() => {
 
 
 // JavaScript for handling form submission
-document.querySelector('form').addEventListener('submit', async (event) => {
-	event.preventDefault(); // Prevent the form from reloading the page
-  
-	// Gather form data
-	const formData = {
-	  name: document.querySelector('input[name="name"]').value,
-	  email: document.querySelector('input[name="email"]').value,
-	  subject: document.querySelector('input[name="subject"]').value,
-	  message: document.querySelector('textarea[name="message"]').value,
-	};
-  
-	// Make the POST request to the backend
-	try {
-	  const response = await fetch('/api/send-email', {
-		method: 'POST',
-		headers: { 'Content-Type': 'application/json' },
-		body: JSON.stringify(formData),
-	  });
-  
-	  const result = await response.json();
-  
-	  if (response.ok) {
-		alert('Message sent successfully!');
-	  } else {
-		alert(`Error: ${result.error}`);
-	  }
-	} catch (error) {
-	  console.error('Error sending message:', error);
-	  alert('Failed to send message. Please try again later.');
+document.getElementById('contactForm').addEventListener('submit', async (event) => {
+	event.preventDefault();
+	const name = document.getElementById('name').value;
+	const email = document.getElementById('email').value;
+	const subject = document.getElementById('subject').value;
+	const message = document.getElementById('message').value;
+
+	const response = await fetch('/api/send-email', {
+	  method: 'POST',
+	  headers: { 'Content-Type': 'application/json' },
+	  body: JSON.stringify({ name, email, subject, message })
+	});
+
+	if (response.ok) {
+	  alert('Message sent successfully!');
+	} else {
+	  alert('Failed to send the message. Please try again.');
 	}
   });
   
