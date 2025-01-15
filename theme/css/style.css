@@ -1082,4 +1082,23 @@ link:focus,
 }
 
 
+.video-container {
+  align-items: center;
+  text-align: center;
+}
+
+.custom-button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #47d147;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.custom-button:hover {
+  background-color: #0056b3;
+}
 /*# sourceMappingURL=style.css.map */
