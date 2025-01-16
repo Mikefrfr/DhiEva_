@@ -1,12 +1,11 @@
 {
-    "version": 2,
-    "builds": [
-      { "src": "api/send-email.js", "use": "@vercel/node" },
-      { "src": "index.html", "use": "@vercel/static" }
-    ],
-    "routes": [
-      { "src": "/api/send-email", "dest": "api/send-email.js" },
-      { "src": "/(.*)", "dest": "index.html" }
-    ]
-  }
-  
+  "version": 2,
+  "builds": [
+    { "src": "pages/api/send-email.js", "use": "@vercel/node" },
+    { "src": "contact.html", "use": "@vercel/static" }
+  ],
+  "routes": [
+    { "src": "/api/send-email", "dest": "pages/api/send-email.js" },
+    { "src": "/(.*)", "dest": "contact.html" }
+  ]
+}

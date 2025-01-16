@@ -149,7 +149,7 @@ setInterval(() => {
 document.getElementById('contactForm').addEventListener('submit', async (event) => {
 	event.preventDefault();
 	const name = document.getElementById('name').value;
-	const email = document.getElementById('email').value;
+	const email = document.getElementById('mail').value;
 	const subject = document.getElementById('subject').value;
 	const message = document.getElementById('message').value;
 
