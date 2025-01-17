@@ -181,3 +181,45 @@ playPauseBtn.addEventListener('click', () => {
         playPauseBtn.textContent = 'Play';
     }
 });
+
+//gallery slideshow
+const galleryItems = document.querySelectorAll('.gallery-item'); // Select all images
+const lightbox = document.getElementById('lightbox'); // Lightbox container
+const lightboxImg = document.getElementById('lightbox-img'); // Lightbox image
+let currentIndex = 0;
+
+// Open Lightbox
+function openLightbox(index) {
+    currentIndex = index; // Set current index
+    lightbox.style.display = 'flex'; // Show lightbox
+    updateLightboxImage(); // Set the image in the lightbox
+}
+
+// Close Lightbox
+function closeLightbox() {
+    lightbox.style.display = 'none'; // Hide lightbox
+}
+
+// Update Lightbox Image
+function updateLightboxImage() {
+    const imgSrc = galleryItems[currentIndex].src; // Get current image src
+    lightboxImg.src = imgSrc; // Update lightbox image src
+}
+
+// Previous Image
+function prevImage() {
+    currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length; // Wrap around
+    updateLightboxImage();
+}
+
+// Next Image
+function nextImage() {
+    currentIndex = (currentIndex + 1) % galleryItems.length; // Wrap around
+    updateLightboxImage();
+}
+
+// Attach Click Event to Each Gallery Image
+galleryItems.forEach((item, index) => {
+    item.addEventListener('click', () => openLightbox(index));
+});
+

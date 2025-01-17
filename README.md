@@ -12,3 +12,4 @@ Some third-party plugins used to build website
 * **Venobox**: <https://veno.es/venobox/>
 * **Slick**: <https://kenwheeler.github.io/slick/>
 * **Filterizr**: <https://yiotis.net/filterizr/>
+* **Lightbox**: <https://lokeshdhakar.com/projects/lightbox2/>
