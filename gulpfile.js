@@ -26,30 +26,7 @@ var path = {
   },
 };
 
-// HTML
-gulp.task("html:build", function () {
-  return gulp
-    .src(path.src.html)
-    .pipe(
-      fileinclude({
-        basepath: path.src.incdir,
-      })
-    )
-    .pipe(
-      comments(`
-    WEBSITE: https://themefisher.com
-    TWITTER: https://twitter.com/themefisher
-    FACEBOOK: https://www.facebook.com/themefisher
-    GITHUB: https://github.com/themefisher/
-    `)
-    )
-    .pipe(gulp.dest(path.build.dirDev))
-    .pipe(
-      bs.reload({
-        stream: true,
-      })
-    );
-});
+
 
 // SCSS
 gulp.task("scss:build", function () {
