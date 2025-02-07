@@ -2,6 +2,8 @@
 
 DhiEva was officially registered as an NGO under The Societies Registration Act 1860 on August 23rd, 2023.
 
+Link to the website: <https://dhieva.in>
+
 Some third-party plugins used to build website
 
 * **Bootstrap v4.5**: <https://getbootstrap.com/docs/4.5/getting-started/introduction/>
